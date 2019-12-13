@@ -1,0 +1,41 @@
+﻿<!-- Header Area Start -->
+<header class="header-area clearfix">
+    <!-- Close Icon -->
+    <div class="nav-close">
+        <i class="fa fa-close" aria-hidden="true"></i>
+    </div>
+    <!-- Logo -->
+    <div class="logo">
+        <a href="index.html"><img src="~/img/core-img/logo.png" alt=""></a>
+    </div>
+    <!-- Amado Nav -->
+    <nav class="amado-nav">
+        <ul>
+            <li class="active"><a href="@Url.Action("index", "Home")">Trang chủ</a></li>
+            <li class="active"><a href="@Url.Action("List", "SanPham")">Sản phẩm</a></li>
+            <li><a href='@Url.Action("Index","GioHang")'>Giỏ hàng</a></li>
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </nav>
+    <!-- Button Group -->
+    <div class="amado-btn-group mt-30 mb-100">
+        <a href='@Url.Action("DanhSachSanPhamGiamGia", "SanPham")' class="btn amado-btn mb-15">%Discount%</a>
+        <a href='@Url.Action("DanhSachSanPhamMoiNhat", "SanPham")' class="btn amado-btn active">Sản phẩm mới</a>
+    </div>
+    <!-- Cart Menu -->
+    @{ 
+         int sl =  Session["GioHang"]  == null ? 0 :  (Session["GioHang"] as GioHangModel ).TongSanPham ;
+    }
+    <div class="cart-fav-search mb-100">
+        <a href='@Url.Action("Index","GioHang")' class="cart-nav"><img src="~/img/core-img/cart.png" alt=""> Giỏ hàng <span id="SoLuongUpdate">@sl </span> SP</a>
+    </div>
+    <!-- Social Button -->
+    <div class="social-info d-flex justify-content-between">
+        <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    </div>
+</header>
+<!-- Header Area End -->

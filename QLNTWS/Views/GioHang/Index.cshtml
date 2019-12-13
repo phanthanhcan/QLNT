@@ -1,0 +1,82 @@
+﻿@model QLNTWS.Models.GioHangModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_QLNTLayout.cshtml";
+    int STT = 0;
+}
+<div class="pt-5">
+    <h2>Danh sách sản phẩm đã đặt</h2>
+
+
+    <table class="table table-bordered ">
+        <tr>
+            <th>
+                STT
+            </th>
+            <th>
+                Tên sản phẩm
+            </th>
+            <th>
+                Đơn giá
+            </th>
+            <th>
+                Số lượng
+            </th>
+            <th>
+                Thành tiền
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.DanhSach)
+        {
+            STT++;
+            <tr>
+                <td>@STT</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SanPham.Ten)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SanPham.GiaBan)
+                </td>
+                <td>
+                    @using (Html.BeginForm("Edit", "GioHang", new { SanPhamID = item.SanPham.SanPhamID }, FormMethod.Post,
+                        htmlAttributes: new { @id = "frmHCSL", @style = "display:inline" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.TextBox("SoLuong", item.SoLuong,
+                            htmlAttributes: new { @style = "width:100px", @min = "1", @type = "number"})
+                        @*<input type="number" name="SoLuong" value="@item.SoLuong" id="@SLID" style="width:50px" min="1" max="100" />*@
+
+                    }
+                </td>
+                <td>
+                    @((item.SanPham.GiaBan * item.SoLuong).ToString())
+                </td>
+                <td>
+                    @using (Html.BeginForm("Delete", "GioHang", new { HangHoaID = item.SanPham.SanPhamID }, FormMethod.Post, htmlAttributes: new { @style = "display:inline" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </button>
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <div>
+        Tổng số mặt hàng: @Model.TongSanPham<br />
+        Tổng số lượng: @Model.TongSoLuong<br />
+        Tổng trị giá: @Model.TongTriGia.ToString("#,##0VND")
+    </div>
+    <div>
+        <a href="@Url.Action("DatHang","GioHang")" class="btn btn-info btn-sm">
+            <i class="fa fa-shopping-cart"></i>Đặt mua
+        </a>
+    </div>
+    <div class="text-danger">@TempData["LoiDatHang"] </div>
+</div>

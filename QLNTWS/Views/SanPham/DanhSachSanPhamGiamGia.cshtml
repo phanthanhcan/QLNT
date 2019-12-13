@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "DanhSachSanPhamGiamGia";
+    Layout = "~/Views/Shared/_QLNTLayout.cshtml";
+}
+@section ScriptHeader{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}
+    <div class="amado_product_area section-padding-100">
+        <div class="container-fluid" id="containerUpdate">
+
+            @Html.Partial("_DanhSachSanPhamGiamGia_ListPartial")
+        </div>
+    </div>

@@ -1,0 +1,813 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4BC99AD3-5C53-45DD-ABF7-2F5AD3CCB8A5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QLNTWS</RootNamespace>
+    <AssemblyName>QLNTWS</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="X.PagedList, Version=7.9.0.0, Culture=neutral, PublicKeyToken=00b6c4f97602e5e8, processorArchitecture=MSIL">
+      <HintPath>..\packages\X.PagedList.7.9.0\lib\net461\X.PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="X.PagedList.Mvc, Version=7.9.1.0, Culture=neutral, PublicKeyToken=c6e0b5b21f916f4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\X.PagedList.Mvc.7.9.1\lib\net461\X.PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="X.PagedList.Web.Common, Version=7.9.1.0, Culture=neutral, PublicKeyToken=00b6c4f97602e5e8, processorArchitecture=MSIL">
+      <HintPath>..\packages\X.PagedList.Web.Common.7.9.1\lib\net461\X.PagedList.Web.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChungLoaisController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HangHoasController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HoaDonChiTietsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HoaDonsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoaisController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhaCungCapsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SanPhamsController.cs" />
+    <Compile Include="Controllers\ChungLoaiController.cs" />
+    <Compile Include="Controllers\DemoController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\HangHoaController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoaiController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ApiHelper.cs" />
+    <Compile Include="Models\BadRequestModel.cs" />
+    <Compile Include="Models\ChungLoai.cs">
+      <DependentUpon>NoiThat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChungLoaiAPI.cs" />
+    <Compile Include="Models\External\ChungLoaiExternal.cs" />
+    <Compile Include="Models\External\LoaiExternal.cs" />
+    <Compile Include="Models\External\SanPhamExternal.cs" />
+    <Compile Include="Models\GioHangModel.cs" />
+    <Compile Include="Models\HoaDon.cs">
+      <DependentUpon>NoiThat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HoaDonChiTiet.cs">
+      <DependentUpon>NoiThat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Loai.cs">
+      <DependentUpon>NoiThat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\ChungLoaiMeta.cs" />
+    <Compile Include="Models\MetaData\HoaDonChiTietMeta.cs" />
+    <Compile Include="Models\MetaData\HoaDonMeta.cs" />
+    <Compile Include="Models\MetaData\LoaiMeta.cs" />
+    <Compile Include="Models\MetaData\SanPhamMeta.cs" />
+    <Compile Include="Models\NhaCungCap.cs">
+      <DependentUpon>NoiThat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NoiThat.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NoiThat.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NoiThat.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NoiThat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NoiThat.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NoiThat.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SanPham.cs">
+      <DependentUpon>NoiThat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\TemplateHTML\css\custom.css" />
+    <Content Include="Areas\Admin\TemplateHTML\css\orionicons.css" />
+    <Content Include="Areas\Admin\TemplateHTML\css\style.blue.css" />
+    <Content Include="Areas\Admin\TemplateHTML\css\style.default.css" />
+    <Content Include="Areas\Admin\TemplateHTML\css\style.green.css" />
+    <Content Include="Areas\Admin\TemplateHTML\css\style.pink.css" />
+    <Content Include="Areas\Admin\TemplateHTML\css\style.red.css" />
+    <Content Include="Areas\Admin\TemplateHTML\css\style.sea.css" />
+    <Content Include="Areas\Admin\TemplateHTML\css\style.violet.css" />
+    <Content Include="Areas\Admin\TemplateHTML\fonts\iconfont.css" />
+    <Content Include="Areas\Admin\TemplateHTML\fonts\orion-font.svg" />
+    <Content Include="Areas\Admin\TemplateHTML\fonts\preview.html" />
+    <Content Include="Areas\Admin\TemplateHTML\img\avatar-1.jpg" />
+    <Content Include="Areas\Admin\TemplateHTML\img\avatar-2.jpg" />
+    <Content Include="Areas\Admin\TemplateHTML\img\avatar-3.jpg" />
+    <Content Include="Areas\Admin\TemplateHTML\img\avatar-4.jpg" />
+    <Content Include="Areas\Admin\TemplateHTML\img\avatar-5.jpg" />
+    <Content Include="Areas\Admin\TemplateHTML\img\avatar-6.jpg" />
+    <Content Include="Areas\Admin\TemplateHTML\img\favicon.png" />
+    <Content Include="Areas\Admin\TemplateHTML\img\illustration.svg" />
+    <Content Include="Areas\Admin\TemplateHTML\img\template-mac.png" />
+    <Content Include="Areas\Admin\TemplateHTML\js\charts-custom.js" />
+    <Content Include="Areas\Admin\TemplateHTML\js\charts-home.js" />
+    <Content Include="Areas\Admin\TemplateHTML\js\front.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\chart.js\Chart.bundle.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\chart.js\Chart.bundle.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\chart.js\Chart.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\chart.js\Chart.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\additional-methods.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\additional-methods.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\jquery.validate.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\jquery.validate.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ar.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ar.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_az.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_az.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_bg.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_bg.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_bn_BD.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_bn_BD.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ca.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ca.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_cs.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_cs.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_da.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_da.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_de.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_de.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_el.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_el.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_es.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_es.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_es_AR.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_es_AR.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_es_PE.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_es_PE.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_et.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_et.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_eu.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_eu.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_fa.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_fa.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_fi.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_fi.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_fr.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_fr.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ge.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ge.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_gl.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_gl.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_he.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_he.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_hr.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_hr.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_hu.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_hu.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_hy_AM.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_hy_AM.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_id.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_id.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_is.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_is.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_it.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_it.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ja.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ja.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ka.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ka.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_kk.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_kk.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ko.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ko.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_lt.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_lt.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_lv.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_lv.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_mk.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_mk.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_my.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_my.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_nl.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_nl.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_no.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_no.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_pl.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_pl.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_pt_BR.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_pt_BR.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_pt_PT.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_pt_PT.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ro.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ro.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ru.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ru.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_sd.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_sd.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_si.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_si.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_sk.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_sk.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_sl.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_sl.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_sr.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_sr.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_sr_lat.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_sr_lat.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_sv.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_sv.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_th.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_th.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_tj.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_tj.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_tr.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_tr.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_uk.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_uk.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ur.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_ur.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_vi.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_vi.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_zh.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_zh.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_zh_TW.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\messages_zh_TW.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\methods_de.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\methods_de.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\methods_es_CL.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\methods_es_CL.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\methods_fi.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\methods_fi.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\methods_it.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\methods_it.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\methods_nl.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\methods_nl.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\methods_pt.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery-validation\localization\methods_pt.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery.cookie\jquery.cookie.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery.cookie\MIT-LICENSE.txt" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery\core.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery\jquery.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery\jquery.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery\jquery.slim.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\popper.js\esm\popper-utils.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\popper.js\esm\popper-utils.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\popper.js\esm\popper.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\popper.js\esm\popper.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\popper.js\popper-utils.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\popper.js\popper-utils.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\popper.js\popper.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\popper.js\popper.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\popper.js\umd\popper-utils.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\popper.js\umd\popper-utils.min.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\popper.js\umd\popper.js" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\popper.js\umd\popper.min.js" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="img\1.jpg" />
+    <Content Include="img\10.jpg" />
+    <Content Include="img\11.jpg" />
+    <Content Include="img\12.jpg" />
+    <Content Include="img\13.jpg" />
+    <Content Include="img\14.jpg" />
+    <Content Include="img\15.jpg" />
+    <Content Include="img\16.jpg" />
+    <Content Include="img\17.jpg" />
+    <Content Include="img\18.jpg" />
+    <Content Include="img\19-11-05-11-41-58-19.jpg" />
+    <Content Include="img\19-11-05-11-42-08-20.jpg" />
+    <Content Include="img\19-11-05-11-42-09-23.jpg" />
+    <Content Include="img\19-11-05-11-42-10-24.jpg" />
+    <Content Include="img\19-11-05-11-44-32-19.jpg" />
+    <Content Include="img\19-11-05-11-44-32-20.jpg" />
+    <Content Include="img\19-11-05-11-44-32-23.jpg" />
+    <Content Include="img\19-11-05-11-44-32-24.jpg" />
+    <Content Include="img\19-11-06-10-46-43-7.jpg" />
+    <Content Include="img\19-11-06-10-47-17-7.jpg" />
+    <Content Include="img\19-11-06-10-49-40-7.jpg" />
+    <Content Include="img\19-11-06-10-50-37-7.jpg" />
+    <Content Include="img\19-11-06-10-56-59-7.jpg" />
+    <Content Include="img\19-11-06-12-42-00-15.jpg" />
+    <Content Include="img\19-11-06-12-42-00-17.jpg" />
+    <Content Include="img\19-11-06-12-42-00-18.jpg" />
+    <Content Include="img\19-11-06-12-42-00-19.jpg" />
+    <Content Include="img\19.jpg" />
+    <Content Include="img\20.jpg" />
+    <Content Include="img\21.jpg" />
+    <Content Include="img\22.jpg" />
+    <Content Include="img\23.jpg" />
+    <Content Include="img\24.jpg" />
+    <Content Include="img\5.jpg" />
+    <Content Include="img\6.jpg" />
+    <Content Include="img\7.jpg" />
+    <Content Include="img\8.jpg" />
+    <Content Include="img\9.jpg" />
+    <Content Include="img\bg-img\1.jpg" />
+    <Content Include="img\bg-img\2.jpg" />
+    <Content Include="img\bg-img\3.jpg" />
+    <Content Include="img\bg-img\4.jpg" />
+    <Content Include="img\bg-img\5.jpg" />
+    <Content Include="img\bg-img\6.jpg" />
+    <Content Include="img\bg-img\7.jpg" />
+    <Content Include="img\bg-img\8.jpg" />
+    <Content Include="img\bg-img\9.jpg" />
+    <Content Include="img\bg-img\cart1.jpg" />
+    <Content Include="img\bg-img\cart2.jpg" />
+    <Content Include="img\bg-img\cart3.jpg" />
+    <Content Include="img\core-img\cart.png" />
+    <Content Include="img\core-img\favicon.ico" />
+    <Content Include="img\core-img\favorites.png" />
+    <Content Include="img\core-img\logo.png" />
+    <Content Include="img\core-img\logo2.png" />
+    <Content Include="img\core-img\paypal.png" />
+    <Content Include="img\core-img\search.png" />
+    <Content Include="img\product-img\pro-big-1.jpg" />
+    <Content Include="img\product-img\pro-big-2.jpg" />
+    <Content Include="img\product-img\pro-big-3.jpg" />
+    <Content Include="img\product-img\pro-big-4.jpg" />
+    <Content Include="img\product-img\product1.jpg" />
+    <Content Include="img\product-img\product2.jpg" />
+    <Content Include="img\product-img\product3.jpg" />
+    <Content Include="img\product-img\product4.jpg" />
+    <Content Include="img\product-img\product5.jpg" />
+    <Content Include="img\product-img\product6.jpg" />
+    <Content Include="Models\NoiThat.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NoiThat.edmx</DependentUpon>
+      <LastGenOutput>NoiThat.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\NoiThat.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NoiThat.edmx</DependentUpon>
+      <LastGenOutput>NoiThat.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\HangHoas\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHoas\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHoas\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHoas\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHoas\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\TemplateHTML\fonts\orion-font.eot" />
+    <Content Include="Areas\Admin\TemplateHTML\fonts\orion-font.ttf" />
+    <Content Include="Areas\Admin\TemplateHTML\fonts\orion-font.woff" />
+    <Content Include="Areas\Admin\TemplateHTML\fonts\orion-font.woff2" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery.cookie\component.json" />
+    <Content Include="Areas\Admin\TemplateHTML\vendor\jquery.cookie\cookie.jquery.json" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHoas\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHoas\Upload_detail.cshtml" />
+    <Content Include="zzzstepbytep.txt" />
+    <EntityDeploy Include="Models\NoiThat.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NoiThat.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\NoiThat.edmx.diagram">
+      <DependentUpon>NoiThat.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\SanPhams\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\List.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\BaoLoi.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\Upload.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\Create - Copy.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Loais\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Loais\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Loais\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Loais\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Loais\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Loais\_IndexPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_BaoLoiPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Loais\Upload.cshtml" />
+    <Content Include="Areas\Admin\Views\ChungLoais\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ChungLoais\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ChungLoais\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ChungLoais\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ChungLoais\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChungLoais\_IndexPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaCungCaps\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaCungCaps\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaCungCaps\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaCungCaps\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaCungCaps\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaCungCaps\_IndexPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDonChiTiets\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDonChiTiets\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDonChiTiets\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDonChiTiets\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDonChiTiets\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDonChiTiets\ChiThietDonHang.cshtml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="TemplateHTML\css\animate.css" />
+    <Content Include="TemplateHTML\css\bootstrap.min.css" />
+    <Content Include="TemplateHTML\css\classy-nav.min.css" />
+    <Content Include="TemplateHTML\css\core-style.css" />
+    <Content Include="TemplateHTML\css\font-awesome.min.css" />
+    <Content Include="TemplateHTML\css\jquery-ui.min.css" />
+    <Content Include="TemplateHTML\css\magnific-popup.css" />
+    <Content Include="TemplateHTML\css\nice-select.css" />
+    <Content Include="TemplateHTML\css\owl.carousel.css" />
+    <Content Include="TemplateHTML\fonts\fontawesome-webfont.svg" />
+    <Content Include="TemplateHTML\img\bg-img\1.jpg" />
+    <Content Include="TemplateHTML\img\bg-img\2.jpg" />
+    <Content Include="TemplateHTML\img\bg-img\3.jpg" />
+    <Content Include="TemplateHTML\img\bg-img\4.jpg" />
+    <Content Include="TemplateHTML\img\bg-img\5.jpg" />
+    <Content Include="TemplateHTML\img\bg-img\6.jpg" />
+    <Content Include="TemplateHTML\img\bg-img\7.jpg" />
+    <Content Include="TemplateHTML\img\bg-img\8.jpg" />
+    <Content Include="TemplateHTML\img\bg-img\9.jpg" />
+    <Content Include="TemplateHTML\img\bg-img\cart1.jpg" />
+    <Content Include="TemplateHTML\img\bg-img\cart2.jpg" />
+    <Content Include="TemplateHTML\img\bg-img\cart3.jpg" />
+    <Content Include="TemplateHTML\img\core-img\cart.png" />
+    <Content Include="TemplateHTML\img\core-img\favicon.ico" />
+    <Content Include="TemplateHTML\img\core-img\favorites.png" />
+    <Content Include="TemplateHTML\img\core-img\logo.png" />
+    <Content Include="TemplateHTML\img\core-img\logo2.png" />
+    <Content Include="TemplateHTML\img\core-img\paypal.png" />
+    <Content Include="TemplateHTML\img\core-img\search.png" />
+    <Content Include="TemplateHTML\img\product-img\pro-big-1.jpg" />
+    <Content Include="TemplateHTML\img\product-img\pro-big-2.jpg" />
+    <Content Include="TemplateHTML\img\product-img\pro-big-3.jpg" />
+    <Content Include="TemplateHTML\img\product-img\pro-big-4.jpg" />
+    <Content Include="TemplateHTML\img\product-img\product1.jpg" />
+    <Content Include="TemplateHTML\img\product-img\product2.jpg" />
+    <Content Include="TemplateHTML\img\product-img\product3.jpg" />
+    <Content Include="TemplateHTML\img\product-img\product4.jpg" />
+    <Content Include="TemplateHTML\img\product-img\product5.jpg" />
+    <Content Include="TemplateHTML\img\product-img\product6.jpg" />
+    <Content Include="TemplateHTML\js\active.js" />
+    <Content Include="TemplateHTML\js\bootstrap.min.js" />
+    <Content Include="TemplateHTML\js\classy-nav.min.js" />
+    <Content Include="TemplateHTML\js\jquery\jquery-2.2.4.min.js" />
+    <Content Include="TemplateHTML\js\map-active.js" />
+    <Content Include="TemplateHTML\js\plugins.js" />
+    <Content Include="TemplateHTML\js\popper.min.js" />
+    <Content Include="TemplateHTML\style.css" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Shared\_QLNTLayout.cshtml" />
+    <Content Include="Views\Shared\_MenuPartial.cshtml" />
+    <Content Include="Views\ChungLoai\_DanhSachChungLoai_IndexPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="TemplateHTML\.gitattributes" />
+    <Content Include="TemplateHTML\.gitignore" />
+    <Content Include="TemplateHTML\.sass-cache\23fb10bb6531a16595cc9a8cbcaeb8f40f41ec84\style.scssc" />
+    <Content Include="TemplateHTML\.sass-cache\23fb10bb6531a16595cc9a8cbcaeb8f40f41ec84\_mixin.scssc" />
+    <Content Include="TemplateHTML\.sass-cache\23fb10bb6531a16595cc9a8cbcaeb8f40f41ec84\_responsive.scssc" />
+    <Content Include="TemplateHTML\.sass-cache\23fb10bb6531a16595cc9a8cbcaeb8f40f41ec84\_theme_color.scssc" />
+    <Content Include="TemplateHTML\.sass-cache\23fb10bb6531a16595cc9a8cbcaeb8f40f41ec84\_variables.scssc" />
+    <Content Include="TemplateHTML\.sass-cache\997c61c8c2a2a831333fab68bc2254612bdf8817\style.scssc" />
+    <Content Include="TemplateHTML\.sass-cache\997c61c8c2a2a831333fab68bc2254612bdf8817\_mixin.scssc" />
+    <Content Include="TemplateHTML\.sass-cache\997c61c8c2a2a831333fab68bc2254612bdf8817\_responsive.scssc" />
+    <Content Include="TemplateHTML\.sass-cache\997c61c8c2a2a831333fab68bc2254612bdf8817\_theme_color.scssc" />
+    <Content Include="TemplateHTML\.sass-cache\997c61c8c2a2a831333fab68bc2254612bdf8817\_variables.scssc" />
+    <Content Include="TemplateHTML\css\core-style.css.map" />
+    <Content Include="TemplateHTML\fonts\fontawesome-webfont.eot" />
+    <Content Include="TemplateHTML\fonts\fontawesome-webfont.ttf" />
+    <Content Include="TemplateHTML\fonts\fontawesome-webfont.woff" />
+    <Content Include="TemplateHTML\fonts\fontawesome-webfont.woff2" />
+    <Content Include="TemplateHTML\fonts\FontAwesome.otf" />
+    <Content Include="TemplateHTML\fonts\helveticaneue_medium-webfont.ttf" />
+    <Content Include="TemplateHTML\fonts\helveticaneue_medium-webfont.woff" />
+    <Content Include="TemplateHTML\fonts\helveticaneue_medium-webfont.woff2" />
+    <Content Include="TemplateHTML\fonts\helvetica_neu_bold-webfont.ttf" />
+    <Content Include="TemplateHTML\fonts\helvetica_neu_bold-webfont.woff" />
+    <Content Include="TemplateHTML\fonts\helvetica_neu_bold-webfont.woff2" />
+    <Content Include="TemplateHTML\scss\style.scss" />
+    <Content Include="TemplateHTML\scss\_mixin.scss" />
+    <Content Include="TemplateHTML\scss\_responsive.scss" />
+    <Content Include="TemplateHTML\scss\_theme_color.scss" />
+    <Content Include="TemplateHTML\scss\_variables.scss" />
+    <Content Include="Views\Shared\_NewLetterPartial.cshtml" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Views\Shared\BaoLoi.cshtml" />
+    <Content Include="Views\ChungLoai\_CatagoriesMenuPartial.cshtml" />
+    <Content Include="Views\HangHoa\DSHangHoaTheoChungLoai.cshtml" />
+    <Content Include="Views\Loai\_DanhSachLoai_IndexPartial.cshtml" />
+    <Content Include="Views\HangHoa\HangHoaChiTiet.cshtml" />
+    <Content Include="Views\Demo\Index.cshtml" />
+    <Content Include="Views\SanPham\DanhSachSanPhamGiamGia.cshtml" />
+    <Content Include="Views\SanPham\_DanhSachSanPhamGiamGia_ListPartial.cshtml" />
+    <Content Include="Views\SanPham\DanhSachSanPhamMoiNhat.cshtml" />
+    <Content Include="Views\GioHang\DatHang.cshtml" />
+    <Content Include="Views\GioHang\Index.cshtml" />
+    <Content Include="Views\SanPham\List.cshtml" />
+    <Content Include="Views\SanPham\_ListPartial.cshtml" />
+    <Content Include="Views\SanPham\SanPhamChiTiet.cshtml" />
+    <Content Include="Views\Shared\_BaoLoiPartial.cshtml" />
+    <Content Include="Views\GioHang\DatHangThanhCong.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{142b7558-4461-4104-969f-5ea551fb1e11}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>7021</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:7021/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

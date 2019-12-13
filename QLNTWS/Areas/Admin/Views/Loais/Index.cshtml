@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Danh sách Loại sản phẩm - Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section ScriptHeader{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}
+<p>
+    @Html.ActionLink("Thêm mới", "Create", null, htmlAttributes: new { @class = "btn btn-primary" }) |
+</p>
+
+<div id="containerUpdate">
+    @Html.Partial("_IndexPartial")
+</div>

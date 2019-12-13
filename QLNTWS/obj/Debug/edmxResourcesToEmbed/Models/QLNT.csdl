@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLNoiThatModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ChungLoai">
+    <Key>
+      <PropertyRef Name="IDChungLoai" />
+    </Key>
+    <Property Name="IDChungLoai" Type="Guid" Nullable="false" />
+    <Property Name="TenChungLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PriceFrom" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HangHoas" Relationship="QLNoiThatModel.FK_HangHoa_HangHoa" FromRole="ChungLoai" ToRole="HangHoa" />
+  </EntityType>
+  <EntityContainer Name="QLNoiThatDbContext" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="ChungLoais" EntityType="Self.ChungLoai" />
+    <EntitySet Name="HangHoas" EntityType="QLNoiThatModel.HangHoa" />
+    <AssociationSet Name="FK_HangHoa_HangHoa" Association="QLNoiThatModel.FK_HangHoa_HangHoa">
+      <End Role="ChungLoai" EntitySet="ChungLoais" />
+      <End Role="HangHoa" EntitySet="HangHoas" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="HangHoa">
+    <Key>
+      <PropertyRef Name="IDHangHoa" />
+    </Key>
+    <Property Name="IDHangHoa" Type="Guid" Nullable="false" />
+    <Property Name="TenHangHoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GiaBan" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConHang" Type="Boolean" />
+    <Property Name="star" Type="Int32" />
+    <Property Name="Image_Header" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image_Detail_Large" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image_Detail_Small" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IDChungLoai" Type="Guid" />
+    <NavigationProperty Name="ChungLoai" Relationship="QLNoiThatModel.FK_HangHoa_HangHoa" FromRole="HangHoa" ToRole="ChungLoai" />
+  </EntityType>
+  <Association Name="FK_HangHoa_HangHoa">
+    <End Type="QLNoiThatModel.ChungLoai" Role="ChungLoai" Multiplicity="0..1" />
+    <End Type="QLNoiThatModel.HangHoa" Role="HangHoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChungLoai">
+        <PropertyRef Name="IDChungLoai" />
+      </Principal>
+      <Dependent Role="HangHoa">
+        <PropertyRef Name="IDChungLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

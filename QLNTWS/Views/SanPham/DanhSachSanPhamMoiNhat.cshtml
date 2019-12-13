@@ -1,0 +1,41 @@
+﻿@model List<SanPhamAPIOutput>
+@{
+    ViewBag.Title = "Sanh sách  sản phảm mới nhất";
+    Layout = "~/Views/Shared/_QLNTLayout.cshtml";
+}
+
+
+<div class="row">
+    @foreach (SanPhamAPIOutput item  in Model)
+    {
+        <!-- Single Product Area -->
+        @*<div class="col-12 col-sm-6 col-md-12 col-xl-6">*@
+        <div class="col-12 col-sm-3 col-md-6 col-xl-3">
+            <div class="single-product-wrapper">
+                <!-- Product Image -->
+                <div class="product-img">
+                    <img src="~/img/@item.Hinh" alt="">
+                    <!-- Hover Thumb -->
+                    <img class="hover-img" src="~/img/@item.Hinh" alt="">
+                </div>
+                <!-- Product Description -->
+                <div class="product-description d-flex align-items-center justify-content-between">
+                    <!-- Product Meta Data -->
+                    <div class="product-meta-data">
+                        <div class="line"></div>
+                        <p class="product-price">@item.GiaBan</p>
+                        <p class="product-price" style="color:red">@item.GiamGia %</p>
+                        <a href="@Url.Action("HangHoaChiTiet","HangHoa",new { Id=item.SanPhamID})">
+                            <h6>@item.Ten</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single Product Area -->
+    }
+
+</div>
+
+
+

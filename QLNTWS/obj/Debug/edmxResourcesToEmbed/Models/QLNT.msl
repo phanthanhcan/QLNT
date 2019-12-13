@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLNoiThatModelStoreContainer" CdmEntityContainer="QLNoiThatDbContext">
+    <EntitySetMapping Name="ChungLoais">
+      <EntityTypeMapping TypeName="QLNoiThatModel.ChungLoai">
+        <MappingFragment StoreEntitySet="ChungLoai">
+          <ScalarProperty Name="IDChungLoai" ColumnName="IDChungLoai" />
+          <ScalarProperty Name="TenChungLoai" ColumnName="TenChungLoai" />
+          <ScalarProperty Name="PriceFrom" ColumnName="PriceFrom" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HangHoas">
+      <EntityTypeMapping TypeName="QLNoiThatModel.HangHoa">
+        <MappingFragment StoreEntitySet="HangHoa">
+          <ScalarProperty Name="IDChungLoai" ColumnName="IDChungLoai" />
+          <ScalarProperty Name="Image_Detail_Small" ColumnName="Image_Detail_Small" />
+          <ScalarProperty Name="Image_Detail_Large" ColumnName="Image_Detail_Large" />
+          <ScalarProperty Name="Image_Header" ColumnName="Image_Header" />
+          <ScalarProperty Name="star" ColumnName="star" />
+          <ScalarProperty Name="ConHang" ColumnName="ConHang" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+          <ScalarProperty Name="TenHangHoa" ColumnName="TenHangHoa" />
+          <ScalarProperty Name="IDHangHoa" ColumnName="IDHangHoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

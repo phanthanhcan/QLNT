@@ -1,0 +1,74 @@
+﻿
+    @{
+        WebGrid grid = null;
+        string errMsg = null;
+        try
+        {
+            grid = new WebGrid(source: Model , canPage: false);
+        }
+        catch (Exception ex)
+        {
+            errMsg = ($"lỗi {ex.ToString()}");
+        }
+    }
+
+<div class="card-body" >
+    <div id="ContainerUpdate">
+
+        <div class="table-responsive">
+            @if (grid != null)
+            {
+                string photopath = Url.Content("~/img");
+                @grid.GetHtml(
+                   tableStyle: "table table-bordered table-hover",
+                   headerStyle: "thead-light",
+                   footerStyle: "table-pager",
+                   selectedRowStyle: "table-active",
+                   htmlAttributes: new {id= "44"},  // id của tble
+                   mode: WebGridPagerModes.All,
+                   columns: grid.Columns(
+
+                        grid.Column("MaSo", header: "ID"),
+                        grid.Column("Ten", header: "Tên loại",
+                        format: item => Html.ActionLink((string)item.Ten, "Details", new { id = item.SanPhamID }) ),
+                        grid.Column("Loai.Ten", header: "Chủng loại"),
+                        grid.Column("BiDanh", header: "Bí danh"),
+                        
+                        grid.Column("GiaBan", header: "Giá Tiền", style: "text-right", format: item => item.GiaBan?.ToString("#,##0VND")),
+                        grid.Column(format: item => Html.ActionLink("sửa", "Edit", new { id = item.SanPhamID })),
+                        grid.Column(format: item => Html.ActionLink("Upload", "Upload", new { id = item.SanPhamID })),
+                        grid.Column(format: item => Html.ActionLink("Xóa", "Delete", new { id = item.SanPhamID })), 
+                        grid.Column(format: item => Html.Raw($"<img src='{photopath}/{item.Hinh}' style='height: 50px ; width: 50px'/>"))
+
+                    )
+                )
+            }
+        </div>
+    </div>
+    <div>
+        @{ var OnePageOfProducts = (IPagedList)ViewBag.OnePageOfData;}
+
+        @Html.PagedListPager((IPagedList)ViewBag.OnePageOfData, page => Url.Action("List", new { page = page }),
+            PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing
+            (
+                new PagedListRenderOptions
+                {
+                    UlElementClasses = new string[] { "pagination", "justify-content-end", "pagination-lg" },
+                    LiElementClasses = new string[] { "page-item"  },
+                    PageClasses = new string[] { "page-link" },
+                    LinkToFirstPageFormat = "Trang đầu"
+
+
+                }
+                ,ajaxOptions: new AjaxOptions
+                {
+                    UpdateTargetId = "containerUpdate",
+                    InsertionMode = InsertionMode.Replace,
+                    HttpMethod= "GET"
+                }
+            )
+        )
+    </div>
+</div>
+
+

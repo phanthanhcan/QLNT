@@ -1,0 +1,11 @@
+﻿@model List< SanPhamAPIOutput>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_QLNTLayout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <h3>@item.Ten</h3>
+}
+

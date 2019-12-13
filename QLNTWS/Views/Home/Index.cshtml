@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Siêu thị Nội Thất - Index";
+    Layout = "~/Views/Shared/_QLNTLayout.cshtml";
+}
+
+@Html.Action("_DanhSachLoai_IndexPartial", "Loai" )
+
+@section Newsletter{
+        @Html.Partial("_NewLetterPartial")
+}
+
+@section Footer{
+    @Html.Partial("_FooterPartial")
+}
+

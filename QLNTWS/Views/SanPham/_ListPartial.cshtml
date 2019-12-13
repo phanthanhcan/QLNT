@@ -1,0 +1,72 @@
+﻿<div class="row">
+
+    @foreach (SanPham item in Model)
+    {
+        <!-- Single Product Area -->
+        <div class="col-12 col-sm-6 col-md-12 col-xl-6">
+            <div class="single-product-wrapper">
+                <!-- Product Image -->
+                <div class="product-img">
+                    <img src="~/img/@item.Hinhs[0]" alt="">
+                    <!-- Hover Thumb -->
+                    <img class="hover-img" src="~/img/@item.@item.Hinhs[2]h" alt="">
+                </div>
+                <!-- Product Description -->
+                <div class="product-description d-flex align-items-center justify-content-between">
+                    <!-- Product Meta Data -->
+                    <div class="product-meta-data">
+                        <div class="line"></div>
+                        <p class="product-price">@item.GiaBan</p>
+                        <a href="@Url.Action("SanPhamChiTiet","SanPham",new { Id=item.SanPhamID})">
+                            <h6>@item.Ten</h6>
+                        </a>
+                    </div>
+                    <!-- Ratings & Cart -->
+                    <div class="ratings-cart text-right">
+                        <div class="ratings">
+                            @for (int i = 0; i < item.star; i++)
+                            {
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            }
+
+                        </div>
+                        <div class="cart">
+                            @*<a href="#" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="~/img/core-img/cart.png" alt=""></a>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single Product Area -->
+    }
+
+</div>
+<div class="row">
+    <div class="col-12">
+        <!-- Pagination -->
+        <nav aria-label="navigation">
+            @{ var OnePageOfProducts = (IPagedList)ViewBag.OnePageOfData;}
+
+            @Html.PagedListPager((IPagedList)ViewBag.OnePageOfData, page => Url.Action("List", new { page = page }),
+                PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing
+                (
+                    new PagedListRenderOptions
+                    {
+                        UlElementClasses = new string[] { "pagination", "justify-content-end", "mt-50" },
+                        LiElementClasses = new string[] { "page-item"  },
+                        PageClasses = new string[] { "page-link" },
+                        LinkToFirstPageFormat = "Trang đầu"
+
+
+                    }
+                    ,ajaxOptions: new AjaxOptions
+                    {
+                        UpdateTargetId = "containerUpdate",
+                        InsertionMode = InsertionMode.Replace,
+                        HttpMethod= "GET"
+                    }
+                )
+            )
+        </nav>
+    </div>
+</div>

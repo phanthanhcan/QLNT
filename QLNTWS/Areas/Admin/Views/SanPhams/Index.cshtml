@@ -1,0 +1,112 @@
+﻿@model IEnumerable<QLNTWS.Models.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaSo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ten)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiaBan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.XuatXu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChatLieu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MauSac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HetHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BiDanh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.star)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ListHinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Loai.Ten)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NhaCungCap.Ten)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaSo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoTa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaBan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.XuatXu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChatLieu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MauSac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HetHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BiDanh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.star)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ListHinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Loai.Ten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhaCungCap.Ten)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SanPhamID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SanPhamID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SanPhamID })
+        </td>
+    </tr>
+}
+
+</table>

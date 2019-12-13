@@ -1,0 +1,133 @@
+﻿@model SanPham
+@{
+    ViewBag.Title = "HangHoaChiTiet";
+    Layout = "~/Views/Shared/_QLNTLayout.cshtml";
+    string photopath = Url.Content("~/img");
+}
+<!-- Product Details Area Start -->
+<div class="single-product-area section-padding-100 clearfix">
+    <div class="container-fluid">
+        <!-- link đường dẫn-->
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mt-50">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Furniture</a></li>
+                        <li class="breadcrumb-item"><a href="#">Chairs</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">white modern chair</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!--end link đường dẫn-->
+        <div class="row">
+            <div class="col-12 col-lg-7">
+                <div class="single_product_thumb">
+                    <div id="product_details_slider" class="carousel slide" data-ride="carousel">
+
+                        @{
+                            String act = "active";
+                            int i = 0;
+                        }
+                        <ol class="carousel-indicators">
+                            @foreach (string item in Model.Hinhs)
+                            {
+                                <li class="@act" data-target="#product_details_slider" data-slide-to="@i" style=" background-image: url('../../img/@item');">
+                                </li>
+                                act = "";
+                                i++;
+                            }
+                        </ol>
+
+                        @{act = "active"; }
+                        <div class="carousel-inner">
+                            @foreach (string item in Model.Hinhs)
+                            {
+                                <div class="carousel-item @act">
+                                    <a class="gallery_img" href="~/img/@item">
+                                        <img class="d-block w-100" src="~/img/@item" alt="First slide">
+                                    </a>
+                                </div>
+                                act = "";
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5">
+                <div class="single_product_desc">
+                    <!-- Product Meta Data -->
+                    <div class="product-meta-data">
+                        <div class="line"></div>
+                        <p class="product-price">@Model.GiaBan.ToString("#,##0") </p>
+                        <h3>@Model.Ten</h3>
+                        <!-- Ratings & Review -->
+                        <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
+                            <div class="ratings">
+                                @for (int ii = 0; ii < Model.star; ii++)
+                                {
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                }
+                            </div>
+                            @*<div class="review">
+                                    <a href="#">Write A Review</a>
+                                </div>*@
+                        </div>
+                        <!-- Avaiable  notav unavaibility -->
+                        @{
+                            if (Model.HetHang == true)
+                            {
+                                <p class="notavaibility mt-3 mb-2"><i class="fa fa-circle"></i> Hết hàng</p>
+                            }
+                            else
+                            {
+                                <p class="avaibility mt-3 mb-2"><i class="fa fa-circle"></i> Còn hàng</p>
+                            }
+                        }
+                        <div class="text-detail">
+                            Nơi sản xuất: @Model.XuatXu
+                        </div>
+                        <div class="text-detail">
+                            Nhà sản xuất: @Model.NhaCungCap.Ten
+                        </div>
+                        <div class="text-detail">
+                            Màu sắc: @Model.MauSac
+                        </div>
+
+                    </div>
+                    <!--Diễn giải-->
+                    <div class="short_overview my-5">
+                        <h6>Mô tả:</h6>
+                        <p>@Model.MoTa</p>
+                    </div>
+                    <!--end Diễn giải-->
+                    <!-- Add to Cart Form -->
+                    @using (Ajax.BeginForm(actionName: "CreateGet", controllerName: "GioHang", routeValues: null,
+                        ajaxOptions: new AjaxOptions { HttpMethod = "POST",
+                            UpdateTargetId = "SoLuongUpdate"
+                        },
+
+                        htmlAttributes: new { @class = "cart clearfix" }))
+                    {
+                        <input type="hidden" id="SanPhamID" name="SanPhamID" value="@Model.SanPhamID" />
+                        <div class="cart-btn d-flex mb-50">
+                            <p>Số lượng</p>
+                            <div class="quantity">
+                                <span class="qty-minus" onclick="var effect = document.getElementById('SoLuong'); var SoLuong = effect.value; if( !isNaN( SoLuong ) &amp;&amp; SoLuong &gt; 1 ) effect.value--;return false;"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
+                                <input type="number" class="qty-text" id="SoLuong" step="1" min="1" max="300" name="SoLuong" value="1">
+                                <span class="qty-plus" onclick="var effect = document.getElementById('SoLuong'); var SoLuong = effect.value; if( !isNaN( SoLuong )) effect.value++;return false;"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn amado-btn">Thêm vào giỏ hàng</button>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Details Area End -->
+@section Script{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<QLNTWS.Models.HoaDonChiTiet>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Danh sách sản phẩm</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThanhTien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoaDon.HoTenKhach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SanPham.MaSo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThanhTien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoaDon.HoTenKhach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SanPham.MaSo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_QLNTLayout.cshtml";
+}
+@section ScriptHeader{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}
+
+@Html.Action("_CatagoriesMenuPartial", "ChungLoai");
+<div class="amado_product_area section-padding-100">
+    <div class="container-fluid"  id="containerUpdate">
+            @Html.Partial("_ListPartial")
+    </div>
+</div>
+
+

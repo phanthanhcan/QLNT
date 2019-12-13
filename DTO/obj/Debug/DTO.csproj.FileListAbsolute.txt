@@ -1,0 +1,6 @@
+C:\CanPT\3.TaiLieu\6.CSharps\T3H\Mon3\QLNTWS\DTO\bin\Debug\DTO.dll
+C:\CanPT\3.TaiLieu\6.CSharps\T3H\Mon3\QLNTWS\DTO\bin\Debug\DTO.pdb
+C:\CanPT\3.TaiLieu\6.CSharps\T3H\Mon3\QLNTWS\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
+C:\CanPT\3.TaiLieu\6.CSharps\T3H\Mon3\QLNTWS\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\CanPT\3.TaiLieu\6.CSharps\T3H\Mon3\QLNTWS\DTO\obj\Debug\DTO.dll
+C:\CanPT\3.TaiLieu\6.CSharps\T3H\Mon3\QLNTWS\DTO\obj\Debug\DTO.pdb
